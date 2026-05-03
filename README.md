@@ -10,7 +10,9 @@ Redefines how UI is built — faster, lighter, and more flexible than traditiona
 
 ## Release Info
 - Released on **May 1, 2026**
-- Current version: **Beta 0.1.0**  ![status](https://img.shields.io/badge/status-beta-orange)
+- Current version: **Beta 0.1.0**  
+![status](https://img.shields.io/badge/status-beta-orange)
+
 
 
 ## Installation
