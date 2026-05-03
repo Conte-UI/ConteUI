@@ -12,7 +12,6 @@ Redefines how UI is built — faster, lighter, and more flexible than traditiona
 - Released on **May 1, 2026** ![status](https://img.shields.io/badge/status-beta-orange)
 - Current version: **Beta 0.1.0**
 
----
 
 ## Installation
 
@@ -43,7 +42,6 @@ cd ConteUI
 - [Pseudo States](docs/Pseudo.md)
 - [Misc](docs/Misc.md)
 
----
 
 ## **Why Conté UI?**
 
@@ -63,7 +61,7 @@ cd ConteUI
 - **Flexbox** utilities for building flexible interfaces
 - Powerful **Grid system** for advanced layouts
 
-### **Responsive Engine**
+### Responsive Engine
 
 Conté UI provides a **flexible responsive system** with four modes:
 
@@ -78,21 +76,21 @@ Conté UI provides a **flexible responsive system** with four modes:
 - Use fluid values inside static layouts
 - Override behavior per utility when needed-based design
 
-### **Coloring*"
+### Coloring
 - Supports all CSS color formats (rgb, hsl, hex...)
 - Built-in Material Design palette.
 - Apply either a gradient or an image colors.
 
-### **Typography**
+### Typography
 - Dynamic font sizing.
 - Safe Fonts integration.
 - **Google Fonts** support.
 
-### **Borders / Outline / Radius**
+### Borders / Outline / Radius
 - Full border control with dynamic values
 
 
-### **Full Pseudo Support**
+### Full Pseudo Support
 - Pseudo classes (:hover, :focus...)
 - Pseudo elements (::before, ::after)
 
