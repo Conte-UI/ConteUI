@@ -1,11 +1,7 @@
 # **Conté UI**
 **A Dynamic CSS System**
 
----
-
-<p align="center">
-  <img src="./Docs/Assets/cover.png" alt="Conté UI Banner" />
-</p>
+![Conté Logo](Docs/Assets/Cover.png)
 
 _A breakthrough approach to building modern UI with fully dynamic values and intuitive class conventions.
 Redefines how UI is built — faster, lighter, and more flexible than traditional frameworks._
@@ -13,9 +9,8 @@ Redefines how UI is built — faster, lighter, and more flexible than traditiona
 ---
 
 ## Release Info
-- Released on **May 1, 2026**
+- Released on **May 1, 2026** ![status](https://img.shields.io/badge/status-beta-orange)
 - Current version: **Beta 0.1.0**
-![status](https://img.shields.io/badge/status-beta-orange)
 
 ---
 
@@ -28,7 +23,7 @@ cd ConteUI
 
 ##  Documentation
 
-## Layout
+**Layout**
 - [Grid System](docs/Grid.md)
 - [FlexBox System](docs/FlexBox.md)
 - [Alignment](docs/Alignment.md)
@@ -36,7 +31,7 @@ cd ConteUI
 - [Display](docs/Display.md)
 - [Breakpoints](docs/Breakpoints.md)
 
-## Styling
+**Styling**
 - [Sizing](docs/Sizing.md)
 - [Spacing](docs/Spacing.md)
 - [Coloring](docs/Coloring.md)
@@ -44,13 +39,13 @@ cd ConteUI
 - [Typography](docs/Typography.md)
 - [Theming System](docs/Theming.md)
 
-## Behavior
+**Behavior**
 - [Pseudo States](docs/Pseudo.md)
 - [Misc](docs/Misc.md)
 
 ---
 
-## Why Conté UI?
+## **Why Conté UI?**
 
 -  **Lightweight (~80KB)** with powerful capabilities
 -  **100% dynamic values** (no predefined limits)
