@@ -3,7 +3,7 @@
 
 ![Conté Logo](Docs/Assets/Cover.png)
 
-_A breakthrough approach to building modern UI with fully dynamic values and intuitive class conventions.
+_A breakthrough approach to building modern UIs with fully dynamic values and intuitive class conventions.
 Redefines how UI is built — faster, lighter, and more flexible than traditional frameworks._
 
 ---
