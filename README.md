@@ -9,11 +9,13 @@ Redefines how UI is built — faster, lighter, and more flexible than traditiona
 ---
 
 ## Release Info
-- Released on **May 1, 2026** ![status](https://img.shields.io/badge/status-beta-orange)
+- Released on **May 1, 2026**  ![status](https://img.shields.io/badge/status-beta-orange)
 - Current version: **Beta 0.1.0**
 
 
 ## Installation
+
+Clone the repository:
 
 ```bash
 git clone https://github.com/Conte-UI/ConteUI.git
@@ -74,7 +76,7 @@ Conté UI provides a **flexible responsive system** with four modes:
 
 - Switch between modes globally
 - Use fluid values inside static layouts
-- Override behavior per utility when needed-based design
+- Override behavior per utility when needed
 
 ### Coloring
 - Supports all CSS color formats (rgb, hsl, hex...)
@@ -102,18 +104,19 @@ Conté UI provides a **flexible responsive system** with four modes:
 - Custom themes creation
 
   ## Class Naming Convention
-Conté UI’s powerful and flexible class naming system is designed to be developer‑friendly, with clear and consistent patterns.  
+Conté UI’s introduces flexible class naming system is designed to be developer‑friendly, with clear and consistent patterns. where designer can write exactly what he need.
 It also allows direct use of raw CSS values inside class names, giving developers more freedom than traditional frameworks.
 
 ---
 
-### **Examples**:
+### Examples
 
+```txt
 bg:rgb(120,120,130)
 text-size:20px
 text-color:hsla(200,50%,50%,0.5)
 b:1px_solid_green
-
+```
 
 ### Shortcuts:
 
@@ -152,5 +155,5 @@ The naming system is evolving and may change in future versions.
 ---
 
 ## Contributing
-Contributions are welcome!  
-Please open issues or submit pull requests to help improve Helix UI.
+Contributions are welcome!
+Feel free to open issues or submit pull requests to improve ConteUI.
