@@ -1,9 +1,10 @@
-# **Conté UI — A Dynamic CSS System**
+# **Conté UI**
+**A Dynamic CSS System**
 
 ---
 
 <p align="center">
-  <img src="./Assets/cover.png" alt="Conté UI Banner" />
+  <img src="./Docs/Assets/cover.png" alt="Conté UI Banner" />
 </p>
 
 _A breakthrough approach to building modern UI with fully dynamic values and intuitive class conventions.
@@ -14,6 +15,7 @@ Redefines how UI is built — faster, lighter, and more flexible than traditiona
 ## Release Info
 - Released on **May 1, 2026**
 - Current version: **Beta 0.1.0**
+![status](https://img.shields.io/badge/status-beta-orange)
 
 ---
 
