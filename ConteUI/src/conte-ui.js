@@ -1,3 +1,4 @@
+
 /* 
 # Copyright [2024] [Conté UI]
 #
@@ -349,21 +350,23 @@ class Conte extends Config {
           console.warn("⚠️ Skipped empty class:", cls);
           return null;
         }
+        if (cls.startsWith("Conte__")) {
+          return;
+        }
         const item = clsManager(cls, el, elId);
         generateCss(item);
         this.items.push(item);
         if (item.hasTheme) {
           this.themes.add(item.themeName);
         }
-      });
-    });
-  }
+        // console.log(`Element ID: ${elId} | Current Class: "${cls}"`);
+      }); // forEach Classes
+    }); // forEach Elements
+  } // init
 } /* Conte */
-
 window.addEventListener("DOMContentLoaded", () => {
   new Conte();
 });
-
 function clsManager(cls, el, elId) {
   if (!cls || typeof cls !== "string") return null;
   const entity = {
@@ -453,7 +456,6 @@ function clsManager(cls, el, elId) {
     return null;
   }
 } // clsManager
-
 function cssUtilities (cls) {
   let result = {
     property: null,
@@ -515,113 +517,81 @@ function cssUtilities (cls) {
     if (Configured[property]) {
       result.preConfigured[i] = true;
       let ConfiguredCss = {};
-      const processSpacingValues = (values, strategy) => {
-        if (values.length === 1) {
-          return [makeFluidValue(values[0], {
-            axis: 'x', strategy
-          })];
-        }
-        if (values.length === 2) {
-          return [
-            makeFluidValue(values[0], {
-              axis: 'y', strategy
-            }),
-            makeFluidValue(values[1], {
-              axis: 'x', strategy
-            })
-          ];
-        }
-        if (values.length === 3) {
-          return [
-            makeFluidValue(values[0], {
-              axis: 'y', strategy
-            }),
-            makeFluidValue(values[1], {
-              axis: 'x', strategy
-            }),
-            makeFluidValue(values[2], {
-              axis: 'y', strategy
-            })
-          ];
-        }
-        if (values.length === 4) {
-          return [
-            makeFluidValue(values[0], {
-              axis: 'y', strategy
-            }),
-            makeFluidValue(values[1], {
-              axis: 'x', strategy
-            }),
-            makeFluidValue(values[2], {
-              axis: 'y', strategy
-            }),
-            makeFluidValue(values[3], {
-              axis: 'x', strategy
-            })
-          ];
-        }
-        return values;
-      };
-      ['ltr', 'rtl'].forEach(dir => {
-        const configMap = Config.GetActivePreConfiguredMap(dir);
-        const preConfigMap = configMap[property];
-        if (!preConfigMap) return;
-        let {
-          properties,
-          valueCount,
-          fluid,
-          axis,
-          strategy
-        } = preConfigMap;
-        if (Config.mode === 'isStatic') fluid = result.hasFluid[i] ? true: false;
-        if (Config.mode === 'isFluid') fluid = result.hasStatic[i] ? false: true;
-        let normalizedValue = value.includes('_') ? value.replace(/_/g, ' '): value;
-        let finalValues = normalizedValue.split(/\s+/);
-        if (finalValues.length > valueCount) {
-          console.warn('too many values for', property);
-          return;
-        }
-        const fluidTransform = val => makeFluidValue(val, {
-          axis, strategy
-        });
-        const generateCss = (properties, finalValues, fluid, strategy) => {
-          let cssValues;
+const processSpacingValues = (values, strategy) => {
+  if (values.length === 1) {
+    return [makeFluidValue(values[0], { axis: 'x', strategy })];
+  }
+  if (values.length === 2) {
+    return [
+      makeFluidValue(values[0], { axis: 'y', strategy }),
+      makeFluidValue(values[1], { axis: 'x', strategy })
+    ];
+  }
+  if (values.length === 3) {
+    return [
+      makeFluidValue(values[0], { axis: 'y', strategy }),
+      makeFluidValue(values[1], { axis: 'x', strategy }),
+      makeFluidValue(values[2], { axis: 'y', strategy })
+    ];
+  }
+  if (values.length === 4) {
+    return [
+      makeFluidValue(values[0], { axis: 'y', strategy }),
+      makeFluidValue(values[1], { axis: 'x', strategy }),
+      makeFluidValue(values[2], { axis: 'y', strategy }),
+      makeFluidValue(values[3], { axis: 'x', strategy })
+    ];
+  }
+  return values;
+};
+['ltr', 'rtl'].forEach(dir => {
+  const configMap = Config.GetActivePreConfiguredMap(dir);
+  const preConfigMap = configMap[property];
+  if (!preConfigMap) return;
+  let { properties, valueCount, fluid, axis, strategy } = preConfigMap;
+  if (Config.mode === 'isStatic') fluid = result.hasFluid[i] ? true : false;
+  if (Config.mode === 'isFluid') fluid = result.hasStatic[i] ? false : true;
+  let normalizedValue = value.includes('_') ? value.replace(/_/g, ' ') : value;
+  let finalValues = normalizedValue.split(/\s+/);
+  if (finalValues.length > valueCount) {
+    console.warn('too many values for', property);
+    return;
+  }
+  const fluidTransform = val => makeFluidValue(val, { axis, strategy });
+  const generateCss = (properties, finalValues, fluid, strategy) => {
+    let cssValues;
 
-          if (fluid && strategy === 'spacing') {
-            cssValues = processSpacingValues(finalValues, strategy);
-          } else {
-            cssValues = fluid
-            ? finalValues.map(fluidTransform): finalValues;
-          }
+    if (fluid && strategy === 'spacing') {
+      cssValues = processSpacingValues(finalValues, strategy);
+    } else {
+      cssValues = fluid
+        ? finalValues.map(fluidTransform)
+        : finalValues;
+    }
 
-          const mappedValues = cssValues.map(val => {
-            const color = MaterialDesign.getColor(val);
-            if (color) {
-              result.materialColor = true;
-              return color;
-            }
-            return val;
-          });
+    const mappedValues = cssValues.map(val => {
+      const color = MaterialDesign.getColor(val);
+      if (color) {
+        result.materialColor = true;
+        return color;
+      }
+      return val;
+    });
 
-          return properties
-          .map(propName =>
-            `$ {
-              propName
-            }: $ {
-              mappedValues.join(' ')}$ {
-              result.hasImportant[i] ? ' !important': ''
-            };`
-          )
-          .join('\n') + '\n';
-        };
+    return properties
+      .map(propName =>
+        `${propName}: ${mappedValues.join(' ')}${result.hasImportant[i] ? ' !important' : ''};`
+      )
+      .join('\n') + '\n';
+  };
 
-        ConfiguredCss[dir] = generateCss(
-          properties,
-          finalValues,
-          fluid,
-          strategy
-        );
-      });
+  ConfiguredCss[dir] = generateCss(
+    properties,
+    finalValues,
+    fluid,
+    strategy
+  );
+});
 
       result.preConfiguredCss[i] = ConfiguredCss || {};
       result.preConfiguredLtr[i] = ConfiguredCss.ltr || "";
@@ -649,8 +619,7 @@ function cssUtilities (cls) {
     if (Defined[result.property]) {
       result.preDefined[i] = true;
       let DefinedCss = {};
-      ['ltr',
-        'rtl'].forEach(dir => {
+      ['ltr', 'rtl'].forEach(dir => {
           let preDefinedCls = Config.PreDefinedMap(dir)[result.property];
           if (!preDefinedCls) return;
 
@@ -659,11 +628,7 @@ function cssUtilities (cls) {
           }
 
           const importantFlag = !!result.hasImportant[i];
-          DefinedCss[dir] = `$ {
-            preDefinedCls
-          }$ {
-            importantFlag ? ' !important': ''
-          };`;
+          DefinedCss[dir] = `${preDefinedCls}${importantFlag ? ' !important': ''};`;
         });
 
       result.preDefinedCss[i] = {
@@ -688,11 +653,7 @@ function cssUtilities (cls) {
         PreParedCls = PreParedCls.slice(0, -1);
       }
 
-      const cssLine = `$ {
-        PreParedCls
-      }$ {
-        result.hasImportant[i] ? ' !important': ''
-      };`;
+      const cssLine = `${PreParedCls}${result.hasImportant[i] ? ' !important': ''};`;
 
       result.preparedCss[i] = {
         ltr: cssLine,
@@ -724,15 +685,10 @@ function cssUtilities (cls) {
 
         result.hasMedia[i] = true;
 
-        const mediaBlock = `@media $ {
-          query
-        } {
-          .$ {
-            cls
-          } {
-            $ {
-              rules[cls].trim()}
-          }
+        const mediaBlock = `@media ${query} {
+        .${cls} {
+        ${rules[cls].trim()}
+        }
         }\n`;
 
         if (!result.mediaCss) result.mediaCss = [];
@@ -754,11 +710,7 @@ function cssUtilities (cls) {
     if (!isConfigured && !isPredefined && !isPrepared && !isMedia) {
       if (result.property && result.value) {
         if (result.value.includes('_')) result.value = result.value.replace(/_/g, ' ');
-        const fallbackCss = `$ {
-          result.property
-        }: $ {
-          result.value
-        };`;
+        const fallbackCss = `${result.property}: ${result.value};`;
         result.rawCss[i] = fallbackCss;
         result.rawCssRtl[i] = fallbackCss;
         result.rawCssLtr[i] = fallbackCss;
@@ -771,7 +723,6 @@ function cssUtilities (cls) {
   }); // foreach
   return result;
 } // cssUtilities
-
 function makeFluidValue(value, options = {}) {
   const { axis = 'x', strategy } = options;
 
@@ -801,20 +752,16 @@ function makeFluidValue(value, options = {}) {
       return value;
   }
 }
-
 function inferStrategy(axis) {
   if (axis === 'y') return 'size-y';
   return 'size-x';
 }
-
 function fluidSize(num, unit, viewportUnit) {
   return `clamp(${num}${unit}, calc(${num}${unit} + ((100${viewportUnit} - 300px)/3)/100), ${num * 2}${unit})`;
 }
-
 function fluidText(num, unit) {
   return `clamp(${num * 0.875}${unit}, calc(${num}${unit} + 1vw), ${num * 1.25}${unit})`;
 } // makeFluidValue
-
 class MaterialDesign {
   static get useMaterialDesign() {
     return Config.materialDesign;
@@ -1052,6 +999,7 @@ class MaterialDesign {
     const light = this.themeMaterial.schemes.light;
     const dark = this.themeMaterial.schemes.dark;
 
+    //
     this.materialColorMap.primary.light = hexFromArgb(light.primary);
     this.materialColorMap.primary.dark = hexFromArgb(dark.primary);
     this.materialColorMap.surfaceTint.light = hexFromArgb(light.surfaceTint);
@@ -1118,6 +1066,7 @@ class MaterialDesign {
     this.materialColorMap.onPrimaryFixed.dark = hexFromArgb(dark.onPrimaryFixed);
     this.materialColorMap.primaryFixedDim.light = hexFromArgb(light.primaryFixedDim);
     this.materialColorMap.primaryFixedDim.dark = hexFromArgb(dark.primaryFixedDim);
+    //
     this.materialColorMap.onPrimaryFixedVariant.light = hexFromArgb(light.onPrimaryFixedVariant);
     this.materialColorMap.onPrimaryFixedVariant.dark = hexFromArgb(dark.onPrimaryFixedVariant);
     this.materialColorMap.secondaryFixed.light = hexFromArgb(light.secondaryFixed);
@@ -1155,84 +1104,67 @@ class MaterialDesign {
   static getColor(token) {
     const color = this.materialColorMap[token];
     if (!color) return token; // fallback hex أو rgb إذا لم يكن token موجود
-    return `light-dark($ {
-      color.light
-    }, $ {
-      color.dark
-    })`;
+    return `light-dark(${color.light}, ${color.dark})`;
   }
   //
   static applyMaterialColors() {
-    let css = `:root {
-      \n`;
-      for (const key in this.materialColorMap) {
-        css += `  --$ {
-          key
-        }: $ {
-          this.materialColorMap[key].light
-        };\n`;
-      }
-      css += `
-    }\n\n@media (prefers-color-scheme: dark) {
-      \n  :root {
-        \n`;
-        for (const key in this.materialColorMap) {
-          css += `    --$ {
-            key
-          }: $ {
-            this.materialColorMap[key].dark
-          };\n`;
-        }
-        css += `
-      }\n
-    }\n\n[theme="dark"] {
-      \n`;
-      for (const key in this.materialColorMap) {
-        css += `  --$ {
-          key
-        }: $ {
-          this.materialColorMap[key].dark
-        };\n`;
-      }
-      css += `
-    }\n`;
+    let css = `:root {\n`;
+    for (const key in this.materialColorMap) {
+      css += `  --${key}: ${this.materialColorMap[key].light};\n`;
+    }
+    css += `}\n\n@media (prefers-color-scheme: dark) {\n  :root {\n`;
+    for (const key in this.materialColorMap) {
+      css += `    --${key}: ${this.materialColorMap[key].dark};\n`;
+    }
+    css += `  }\n}\n\n[theme="dark"] {\n`;
+    for (const key in this.materialColorMap) {
+      css += `  --${key}: ${this.materialColorMap[key].dark};\n`;
+    }
+    css += `}\n`;
     return css;
   }
 }
-
+//
 MaterialDesign.loadMaterial();
-
 function shouldApply(item, options = {}) {
   if (!item.hasTheme) return true;
+
   if (options.theme) {
     return item.themeName === options.theme;
   }
-  const currentTheme = document.documentElement.getAttribute("data-theme");
+
+  const currentTheme =
+  document.documentElement.getAttribute("data-theme");
+
   return currentTheme === item.themeName;
 }
-
 function buildSelector(item) {
   return `.${item.clsId}${item.pseudoClass || ""}${item.pseudoElement || ""}`;
 }
-
 function buildMedia(item) {
   if (!item.hasBreakpoint || !item.breakpointName) return null;
+
   const bp = Config.BreakPoints[item.breakpointName];
   return `(min-width:${bp.min}px) and (max-width:${bp.max}px)`;
 }
-
 function buildBlock(selector, css, mediaQuery) {
   if (mediaQuery) {
     return `@media ${mediaQuery} {\n${selector} {\n${css}\n}\n}`;
   }
+
   return `${selector} {\n${css}\n}`;
 }
-
 function generateCss(item) {
   if (!shouldApply(item)) return;
-  const baseDirection = document.documentElement.getAttribute("dir") || getComputedStyle(document.body).direction || "ltr";
+
+  const baseDirection =
+  document.documentElement.getAttribute("dir") ||
+  getComputedStyle(document.body).direction || "ltr";
+
   const finalCss = baseDirection === "rtl" ? item.cssRtl: item.cssLtr;
+
   const font = baseDirection === "rtl" ? item.urlFontLtr: item.urlFontRtl;
+
   const selector = buildSelector(item);
   const mediaQuery = buildMedia(item);
 
@@ -1243,9 +1175,9 @@ function generateCss(item) {
   }
 
   css += buildBlock(selector, finalCss, mediaQuery);
+
   applyRuntime(css);
 }
-
 function applyRuntime(css) {
   const style = document.createElement("style");
   style.textContent = "";
@@ -1256,7 +1188,6 @@ function applyRuntime(css) {
   }
   document.head.appendChild(style);
 }
-
 function rootVariables() {
   return `
   *, *::before, *::after {box-sizing: border-box;}
