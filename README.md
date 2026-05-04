@@ -3,7 +3,7 @@
 
 ![Conté Logo](Docs/Assets/Cover.png)
 
-_A breakthrough approach to building modern UIs with fully dynamic values and intuitive class conventions.
+_Traditional frameworks often lock you into predefined scales. Conté UI breaks these limits with a breakthrough approach to building modern UIs with fully dynamic values and intuitive class conventions.
 Redefines how UI is built — faster, lighter, and more flexible than traditional frameworks._
 
 ---
