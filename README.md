@@ -15,7 +15,13 @@ Redefines how UI is built — faster, lighter, and more flexible than traditiona
 
 ## Installation
 
-Clone the repository:
+Option 1: Use via CDN
+
+```html
+<script src="https://cdn.jsdelivr.net/gh/Conte-UI/ConteUI/ConteUI/dist/conte-ui-v0.1.0-beta.js"></script>
+```
+
+Option 2: Clone the repository
 
 ```bash
 git clone https://github.com/Conte-UI/ConteUI.git
