@@ -163,3 +163,13 @@ The naming system is evolving and may change in future versions.
 ## Contributing
 Contributions are welcome!
 Feel free to open issues or submit pull requests to improve ConteUI.
+
+---
+
+## Credits & Licenses
+This project uses [Material Design](https://m3.material.io/) and 
+[Material Color Utilities](https://github.com/material-foundation/material-color-utilities) 
+by Google, licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). 
+The color roles (primary, onPrimary, etc.) and color generation algorithms are 
+based on the Material 3 design system.
+
