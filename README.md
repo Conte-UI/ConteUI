@@ -63,6 +63,7 @@ cd ConteUI
 -  **Smart and intuitive class conventions**.
 -  **Raw CSS in classes**
 -  **More flexibility** than traditional CSS frameworks.
+- Designed to operate independently or integrate seamlessly as an add-on layer to enhance existing css frameworks.
 
 ---
 
