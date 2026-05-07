@@ -53,9 +53,13 @@ cd ConteUI
 
 ## **Why Conté UI?**
 
--  **Lightweight (~80KB)** with powerful capabilities
+-  **Lightweight** with powerful capabilities
 -  **100% dynamic values** (no predefined limits)
--  **Flexible responsive design** — static, or breakpoints, or fluid scaling, or a mixture of them.
+-  **Flexible responsive designs** — static, or breakpoints, or fluid scaling, or a mixture of them.
+- Powerful **Layout Engine:** A robust system for building complex page structures with high flexibility.
+- Robust **Dynamic Coloring System** with full support for CSS color functions, alongside seamless integration with Material Design standards.
+- Comprehensive **Writing Mode** Support: Full support for various writing modes, including horizontal and vertical orientations (e.g., Japanese and Chinese).
+- **Logical & Physical Properties:** Seamless handling of Directionality (LTR/RTL) using CSS Logical Properties to ensure layouts adapt automatically to any language.
 -  **Smart and intuitive class conventions**.
 -  **Raw CSS in classes**
 -  **More flexibility** than traditional CSS frameworks.
