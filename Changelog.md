@@ -1,0 +1,17 @@
+# Changelog
+
+All notable changes to this project will be documented in this file.
+
+## [v0.1.1-beta] - 2026-06-09
+### Added
+- CSS components: buttons, icons, badge
+
+### Changed
+- Updated core bundle naming convention
+
+_____________________________________________
+
+## [v0.1.0-beta] - 2026-05-01
+### Added
+- Initial project setup
+- Base JS system
