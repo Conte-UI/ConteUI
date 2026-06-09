@@ -1,5 +1,5 @@
 /* 
-# Copyright [2024] [Conté UI]
+# Copyright [2026] [Conté UI]
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -1102,7 +1102,7 @@ class MaterialDesign {
 
   static getColor(token) {
     const color = this.materialColorMap[token];
-    if (!color) return token; // fallback hex أو rgb إذا لم يكن token موجود
+    if (!color) return token;
     return `light-dark(${color.light}, ${color.dark})`;
   }
   //
