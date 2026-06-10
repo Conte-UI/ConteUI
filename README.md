@@ -10,18 +10,30 @@ Redefines how UI is built — faster, lighter, and more flexible than traditiona
 
 ## Release Info
 - Released on **May 1, 2026**
-- Current version: ![status](https://img.shields.io/badge/status-beta-orange) **Beta 0.1.0**
+- Current version: ![status](https://img.shields.io/badge/status-beta-orange) **Beta 0.1.1**
 
 
 ## Installation
 
-Option 1: Use via CDN
+## Option 1:
+
+Bundle File (Recommended) containing the complete framework.
 
 ```html
-<script src="https://cdn.jsdelivr.net/gh/Conte-UI/ConteUI/ConteUI/dist/conte-ui-v0.1.0-beta.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/Conte-UI/ConteUI@main/ConteUI/dist/conte-ui-v0.1.1-beta-bundle.min.js"></script>
 ```
 
-Option 2: Clone the repository
+## Option 2:
+
+Separate CSS and JavaScript Files
+
+```html
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Conte-UI/ConteUI@main/ConteUI/dist/conte-ui-v0.1.1-beta.min.css">
+
+<script src="https://cdn.jsdelivr.net/gh/Conte-UI/ConteUI@main/ConteUI/dist/conte-ui-v0.1.1-beta.min.js"></script>
+```
+
+Option 3: Clone the repository
 
 ```bash
 git clone https://github.com/Conte-UI/ConteUI.git
