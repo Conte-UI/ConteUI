@@ -15,17 +15,14 @@ Redefines how UI is built — faster, lighter, and more flexible than traditiona
 
 ## Installation
 
-## Option 1:
-
-Bundle File (Recommended) containing the complete framework.
+## Option 1: Bundle File (Recommended) 
+containing the complete framework.
 
 ```html
 <script src="https://cdn.jsdelivr.net/gh/Conte-UI/ConteUI@main/ConteUI/dist/conte-ui-v0.1.1-beta-bundle.min.js"></script>
 ```
 
-## Option 2:
-
-Separate CSS and JavaScript Files
+## Option 2: Separate CSS and JavaScript Files
 
 ```html
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Conte-UI/ConteUI@main/ConteUI/dist/conte-ui-v0.1.1-beta.min.css">
@@ -33,7 +30,7 @@ Separate CSS and JavaScript Files
 <script src="https://cdn.jsdelivr.net/gh/Conte-UI/ConteUI@main/ConteUI/dist/conte-ui-v0.1.1-beta.min.js"></script>
 ```
 
-Option 3: Clone the repository
+## Option 3: Clone the repository
 
 ```bash
 git clone https://github.com/Conte-UI/ConteUI.git
