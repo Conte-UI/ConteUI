@@ -6,11 +6,15 @@ All notable changes to this project will be documented in this file.
 ### Changed
 - Reorganized internal code structure.
 - Improved and fixed several functions.
+### Added
+- Added Subresource Integrity (SRI) hashes for CDN distribution.
+- Users can now verify ConteUI assets integrity when using CDN links.
+  
+_____________________________________________
 
 ## [v0.1.1-beta] - 2026-06-09
 ### Added
 - CSS components: buttons, icons, badge
-
 ### Changed
 - Updated core bundle naming convention
 
