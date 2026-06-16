@@ -40,24 +40,24 @@ cd ConteUI
 ##  Documentation
 
 **Layout**
-- [Grid System](docs/Grid.md)
-- [FlexBox System](docs/FlexBox.md)
-- [Alignment](docs/Alignment.md)
-- [Positioning](docs/Positioning.md)
-- [Display](docs/Display.md)
-- [Breakpoints](docs/Breakpoints.md)
+- [Grid System](docs/grid.md)
+- [FlexBox System](docs/flexbox.md)
+- [Alignment](docs/alignment.md)
+- [Positioning](docs/positioning.md)
+- [Display](docs/display.md)
+- [Breakpoints](docs/breakpoints.md)
 
 **Styling**
-- [Sizing](docs/Sizing.md)
-- [Spacing](docs/Spacing.md)
-- [Coloring](docs/Coloring.md)
-- [Border](docs/Border.md)
-- [Typography](docs/Typography.md)
-- [Theming System](docs/Theming.md)
+- [Sizing](docs/sizing.md)
+- [Spacing](docs/spacing.md)
+- [Coloring](docs/coloring.md)
+- [Border](docs/border.md)
+- [Typography](docs/typography.md)
+- [Theming System](docs/theming.md)
 
 **Behavior**
-- [Pseudo States](docs/Pseudo.md)
-- [Misc](docs/Misc.md)
+- [Pseudo States](docs/pseudo.md)
+- [Misc](docs/misc.md)
 
 
 ## **Why Conté UI?**
