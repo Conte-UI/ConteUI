@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <script src="https://cdn.jsdelivr.net/npm/terser/dist/bundle.min.js"></script>
+    </head>
+    <body>
+        <pre id="minify"></pre>
+        <pre id="info">Loading...</pre>
+        <script>
+            async function createSRI(text) {
+                const data = new TextEncoder().encode(text);
+                const hashBuffer = await crypto.subtle.digest("SHA-384", data);
+                const hash = btoa(
+                    String.fromCharCode(...new Uint8Array(hashBuffer))
+                );
+                return `sha384-${hash}`;
+            }
+            fetch("./ConteUI.js")
+                .then(r => {
+                    if (!r.ok) {
+                        throw new Error(`HTTP ${r.status}`);
+                    }
+                    return r.text();
+                })
+                .then(async code => {
+                    const result = await Terser.minify(code, {
+                        compress: {
+                            passes: 3,
+                            dead_code: true,
+                            drop_debugger: true,
+                            drop_console: true
+                        },
+                        mangle: false,
+                        format: {
+                            comments: false
+                        }
+                    });
+
+                    if (result.error) {
+                        console.error(result.error);
+                        document.getElementById("minify").textContent =
+                            result.error.message;
+                        return;
+                    }
+                    const minifiedCode = result.code;
+                    const originalSize = new Blob([code]).size;
+                    const formatKB = bytes => `${(bytes / 1024).toFixed(2)} KB`;
+                    const minifiedSize = new Blob([minifiedCode]).size;
+
+                    const reduction = (
+                        (1 - minifiedSize / originalSize) *
+                        100
+                    ).toFixed(2);
+                    const integrity = await createSRI(minifiedCode);
+
+                    document.getElementById("info").textContent =
+                        `Original:  ${originalSize} KB
+Minified:  ${minifiedSize} KB
+Reduction: ${reduction}%
+
+Integrity: ${integrity}`;
+
+                    document.getElementById("minify").textContent = result.code;
+                })
+
+                .catch(err => {
+                    console.error(err);
+                    document.getElementById("minify").textContent = err.message;
+                });
+        </script>
+    </body>
+</html>
