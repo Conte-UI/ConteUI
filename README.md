@@ -1,7 +1,7 @@
 # **Conté UI**
 **A Dynamic CSS System**
 
-![Conté Logo](Docs/Assets/Cover.png)
+![Conté Logo](docs/assets/Cover.png)
 
 _Traditional frameworks often lock you into predefined scales. Conté UI breaks these limits with a breakthrough approach to building modern UIs with fully dynamic values, Extensive support for major CSS properties, and intuitive class conventions.
 Redefines how UI is built — faster, lighter, and more flexible than traditional frameworks._
@@ -10,7 +10,7 @@ Redefines how UI is built — faster, lighter, and more flexible than traditiona
 
 ## Release Info
 - Released on **May 1, 2026**
-- Current version: ![status](https://img.shields.io/badge/status-beta-orange) **Beta 0.1.1**
+- Current version: ![status](https://img.shields.io/badge/status-beta-orange) **Beta 0.1.2**
 
 
 ## Installation
