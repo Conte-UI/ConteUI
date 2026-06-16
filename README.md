@@ -37,6 +37,11 @@ git clone https://github.com/Conte-UI/ConteUI.git
 cd ConteUI
 ```
 
+## CDN Usage (Security)
+If you use ConteUI via CDN, you can optionally enable Subresource Integrity (SRI) to ensure the file has not been modified:
+
+SRI hashes are provided for users who load ConteUI from a CDN and want protection against accidental or unauthorized asset modification.
+
 ##  Documentation
 
 **Layout**
