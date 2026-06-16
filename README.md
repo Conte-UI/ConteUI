@@ -27,7 +27,7 @@ containing the complete framework.
 ```html
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Conte-UI/ConteUI@main/dist/standalone/conteui-v0.1.2-beta.min.css">
 
-<script src="https://cdn.jsdelivr.net/gh/Conte-UI/ConteUI@main/ConteUI/dist/conte-ui-v0.1.1-beta.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/Conte-UI/ConteUI@main/dist/standalone/conteui-v0.1.2-beta.min.js"></script>
 ```
 
 ## Option 3: Clone the repository
