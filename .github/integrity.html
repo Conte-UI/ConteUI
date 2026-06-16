@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Integrity Checker</title>
+    </head>
+    <body>
+        <pre id="output">Loading...</pre>
+
+        <script>
+            async function createSRI(url) {
+                const response = await fetch(url);
+
+                if (!response.ok) {
+                    throw new Error(`HTTP Error: ${response.status}`);
+                }
+
+                const code = await response.text();
+
+                const encoder = new TextEncoder();
+                const data = encoder.encode(code);
+
+                const hashBuffer = await crypto.subtle.digest("SHA-384", data);
+
+                const base64 = btoa(
+                    String.fromCharCode(...new Uint8Array(hashBuffer))
+                );
+
+                return `sha384-${base64}`;
+            }
+
+            (async () => {
+                try {
+                    const url =
+                        "../dist/bundle/conteui-v0.1.2-beta.bundle.min.js";
+
+                    const integrity = await createSRI(url);
+
+                    document.getElementById("output").textContent = integrity;
+                } catch (err) {
+                    document.getElementById("output").textContent = err.message;
+                    console.error(err);
+                }
+            })();
+        </script>
+    </body>
+</html>
