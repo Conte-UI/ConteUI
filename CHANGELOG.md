@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file.
 
+## [v0.1.2-beta] - 2026-06-16
+### Changed
+- Reorganized internal code structure.
+- Improved and fixed several functions.
+
 ## [v0.1.1-beta] - 2026-06-09
 ### Added
 - CSS components: buttons, icons, badge
