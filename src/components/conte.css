@@ -41,6 +41,12 @@ dd {
     --ct-badge-height: calc(var(--ct-btn-height-scale) * 0.4);
     --ct-badge-inset-factor: -0.5;
 }
+html[theme="light"] {
+    color-scheme: light;
+}
+html[theme="dark"] {
+    color-scheme: dark;
+}
 @media screen and (max-height: 600px) {
     :root {
         --ct-btn-height-scale: clamp(20px, calc(48px - 0.7vh), 48px);
@@ -469,6 +475,9 @@ dd {
     font-family: "Segoe UI", Arial, sans-serif;
     pointer-events: none;
 }
+[class*="icon-shape-"] {
+    background: light-dark(#b0b0b0, #4a4a4a);
+}
 .ct-icon[class*="icon-shape-"],
 .ct-icon-xl[class*="icon-shape-"],
 .ct-icon-lg[class*="icon-shape-"],
@@ -480,7 +489,6 @@ dd {
     outline: none;
     border-radius: unset;
     box-shadow: unset;
-    background: light-dark(rgb(0 0 0 / 0.15), rgb(236 240 241));
 }
 [class*="ct-icon"].icon-shape-circle {
     -webkit-clip-path: circle(50% at 50% 50%);
@@ -662,7 +670,7 @@ dd {
     line-height: 1;
     border: 1px solid currentColor;
     color: light-dark(#fff, #000);
-    background-color: light-dark(rgb(255 15 15), rgb(255 15 15 / 0.5));
+    background-color: light-dark(#ff0f0f, rgb(255 15 15 / 0.5));
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
