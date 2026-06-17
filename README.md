@@ -25,7 +25,7 @@ containing the complete framework.
 ## Option 2: Separate CSS and JavaScript Files
 
 ```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Conte-UI/ConteUI@main/dist/standalone/conteui-v0.1.2-beta.min.css" integrity="sha384-QdxnSsArWvna+5N05A2aMMntcArOOb/PjjOiMqKBTjI+V3KvyYDyM+HEAlW4kXHs" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Conte-UI/ConteUI@main/dist/standalone/conteui-v0.1.2-beta.min.css" integrity="sha384-u4WzYLHX/7V9zyOFZ0O7QBME73Bujhz00aRGTyJkkXwIm5NQG9ZNTF/Y9+8R3XHV" crossorigin="anonymous">
 
 <script src="https://cdn.jsdelivr.net/gh/Conte-UI/ConteUI@main/dist/standalone/conteui-v0.1.2-beta.min.js" integrity="sha384-jzzP63d3wqdmfFC6IxvRQu9mDVBOf3a5q+IoAo36/OrinbZ6gBxjenzlyhQGDiQh" crossorigin="anonymous"></script>
 ```
