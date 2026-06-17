@@ -19,7 +19,7 @@ Redefines how UI is built — faster, lighter, and more flexible than traditiona
 containing the complete framework.
 
 ```html
-<script src="https://cdn.jsdelivr.net/gh/Conte-UI/ConteUI@main/dist/bundle/conteui-v0.1.2-beta.min.js" integrity="sha384-T5nLPw8z6uPesfB99xlz7uC1DrpwAoLr4uBTzsv/wi6vqm7iLJA82Fw5eR+MN6DC" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/gh/Conte-UI/ConteUI@main/dist/bundle/conteui-v0.1.2-beta.min.js" integrity="sha384-qxW42fd6ImxYKvWGjXYww5AuE6XYj7gTmIbP3V36VJJLsNyES9d3cL/1xuTuGISu" crossorigin="anonymous"></script>
 ```
 
 ## Option 2: Separate CSS and JavaScript Files
