@@ -25,9 +25,9 @@ containing the complete framework.
 ## Option 2: Separate CSS and JavaScript Files
 
 ```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Conte-UI/ConteUI@main/dist/standalone/conteui-v0.1.2-beta.min.css" integrity="sha384-u4WzYLHX/7V9zyOFZ0O7QBME73Bujhz00aRGTyJkkXwIm5NQG9ZNTF/Y9+8R3XHV" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Conte-UI/ConteUI@main/dist/standalone/conteui-v0.1.2-beta.min.css" integrity="sha384-BoNg4FxUTkwb+UDWWLau1ZsJZNNHIh+XVW2nDaRiAs2o/hs4T2/LPzp9NUyxI26/" crossorigin="anonymous">
 
-<script src="https://cdn.jsdelivr.net/gh/Conte-UI/ConteUI@main/dist/standalone/conteui-v0.1.2-beta.min.js" integrity="sha384-jzzP63d3wqdmfFC6IxvRQu9mDVBOf3a5q+IoAo36/OrinbZ6gBxjenzlyhQGDiQh" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/gh/Conte-UI/ConteUI@main/dist/standalone/conteui-v0.1.2-beta.min.js" integrity="sha384-3+LPU5KwGkImhGfg5jzr8oEZy+I/pr1d2s8gWQL4ZqpCgJSFiw4xn3kCWozPtRk0" crossorigin="anonymous"></script>
 ```
 
 ## Option 3: Clone the repository
